@@ -1,3 +1,8 @@
+# Elm-wolf
+3-8 players join a "chat room".  One of them is secretly assigned as the wolf, the rest are sheep.  Each sheep gets a clue about who is the wolf, and they must all chat to try to find out who the wolf is.
+
+Development is tracked at https://www.pivotaltracker.com/n/projects/1879573
+
 # elm-webpack-starter
 
 A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
