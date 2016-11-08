@@ -35,6 +35,7 @@ type alias Model =
     , messages : List Message
     , users : List User
     , mdl : Material.Model
+    , isHost: Bool
     }
 
 
@@ -45,6 +46,7 @@ initialModel =
     , messages = []
     , users = []
     , mdl = Material.model
+    , isHost = False
     }
 
 
@@ -58,7 +60,7 @@ update msg model =
             )
 
         SendMessage ->
-            ( { model | newMessage = "" }
+            ( { model | newMessage = "", isHost = model.isHost || model.newMessage == "/start" }
             , Cmd.none
             , Just <| Say model.newMessage
             )
@@ -154,7 +156,7 @@ messageInputView model =
             model.mdl
             [ Textfield.onInput SetNewMessage
             , Textfield.value model.newMessage
-            , Textfield.label "Type a message..."
+            , Textfield.label ("Type a message... " ++ (toString model.isHost))
             ]
         ]
 
